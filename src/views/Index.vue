@@ -1,20 +1,23 @@
 <template>
     <div style="display: flex;">
         <div class="nav">
-            <nav-menu @menuClick="menuClick"></nav-menu>
+            <NavMenu @menuClick="menuClick" />
         </div>
         <div class="content">
             <div class="group">
-                <Group></Group>
+                <Group />
             </div>
             <div class="session">
-                <Session></Session>
+                <Session />
             </div>
             <div class="typing">
-                <Typing></Typing>
+                <!-- 消息列表 -->
+                <MessageList />
+                <!-- 输入区域 -->
+                <Typing />
             </div>
             <div class="functional">
-                <Functional></Functional>
+                <Functional />
             </div>
         </div>
         <!-- 任务日志 -->
@@ -53,6 +56,7 @@ import Log from '@/components/modal/log/Log.vue'
 import Account from '@/components/modal/account/Account.vue'
 import ScanCode from '@/components/modal/scanCode/ScanCode.vue'
 import Translate from '@/components/modal/translate/Translate.vue'
+import MessageList from '@/components/messageList/MessageList.vue'
 import { ref } from 'vue';
 
 const taskRef = ref();
@@ -94,21 +98,29 @@ const menuClick = (menu: any) => {
     height: 100vh;
     width: 64px;
 }
+
 .content {
     flex: 1;
     display: flex;
+
     .group {
         width: 200px;
     }
+
     .session {
         width: 400px;
         padding: 6px;
     }
+
     .typing {
         flex: 1;
         // border-right: 1px solid #ddd;
         padding: 6px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
     }
+
     .functional {
         width: 310px;
         padding: 6px;
