@@ -123,6 +123,9 @@
                 </el-tabs>
             </el-tab-pane>
         </el-tabs>
+        <div class="btn">
+            <el-button type="warning" size="small">一键离线登录</el-button>
+        </div>
     </div>
 </template>
 
@@ -187,9 +190,20 @@ const handleNodeClick = (data: Tree) => {
 <style scoped lang="scss">
 .container {
     height: 100%;
+    position: relative;
+
+    .btn {
+        position: absolute;
+        top: 7px;
+        right: 6px;
+    }
 
     :deep(.el-tabs) {
         height: 100%;
+
+        .el-tabs__item {
+            padding: 0 12px;
+        }
 
         .custom-tabs-label .el-icon {
             vertical-align: middle;
