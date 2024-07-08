@@ -245,7 +245,7 @@ const playVoice = (item: MessageItem) => {
 const playVideo = (item: MessageItem) => {
     visible.value = true;
     setTimeout(() => {
-        let video = document.createElement('video');
+        let video: any = document.createElement('video');
         video.src = item.videoUrl;
         video.controls = true;
         video.autoplay = true;
